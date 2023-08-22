@@ -1,0 +1,30 @@
+body {
+  background-color: beige;
+  font-family: Verdana, sans-serif;
+}
+
+header {
+  display: flex;
+}
+
+header h1 {
+  margin: auto;
+}
+#container {
+  margin: auto;
+  width: 450px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.button-group {
+  position: relative;
+  margin: 4px;
+  padding: 0px 10px;
+  width: 400px;
+  height: 80px;
+}
+.button-group input {
+  position: relative;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

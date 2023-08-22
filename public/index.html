@@ -4,17 +4,46 @@
         <meta charset="UTF-8"/>
         <script src="../src/excep_handl.js"></script>
         <script src="../src/calc_opt.js"></script>
+        <link rel="stylesheet" href="../src/styles.css">
     </head>
     <body>
         <noscript>Activate javascript on your browser to run this app.</noscript>
-        <label for="Bin2Dec">Enter the value to convert:</label>
-        <input type="text" id="num" name="name" required minlength="1" maxlength="16" size="20" />
-        <input type="button" value="Bin to Dec" onclick="bin2Dec(document.getElementById('num').value)"/>
-        <input type="button" value="Dec to Bin" onclick="dec2Bin(document.getElementById('num').value)"/>
-        <input type="button" value="Bin to Hex" onclick="bin2Hex(document.getElementById('num').value)"/>
-        <input type="button" value="Hex to Bin" onclick="hex2Bin(document.getElementById('num').value)"/>
-        <input type="button" value="Bin to Oct" onclick="bin2Oct(document.getElementById('num').value)"/>
-        <input type="button" value="Oct to Bin" onclick="oct2Bin(document.getElementById('num').value)"/>
-        <p id="conver">Resultado</p>
+        <div id="container">
+            <label for="num">Enter the value to convert:</label>
+            <input type="text" id="num" name="name" required minlength="1" maxlength="16" size="20" />
+            <div class="button-group">
+                    <p>From binary to:</p>
+                <div id="bin">
+                    <input type="button" value="Decimal" onclick="bin2Dec(document.getElementById('num').value)"/>
+                    <input type="button" value="Hexadecimal" onclick="bin2Hex(document.getElementById('num').value)"/>
+                    <input type="button" value="Octal" onclick="bin2Oct(document.getElementById('num').value)"/>
+                </div>
+            </div>
+            <div class="button-group">
+                <p>From decimal to:</p>
+                <div id="dec">
+                    <input type="button" value="Binary" onclick="dec2Bin(document.getElementById('num').value)"/>
+                    <input type="button" value="Hexadecimal" onclick="dec2Hex(document.getElementById('num').value)"/>
+                    <input type="button" value="Octal" onclick="dec2Oct(document.getElementById('num').value)"/>
+                </div>
+            </div>
+            <div class="button-group">
+                <p>From hexadecimal to:</p>
+                <div id="hex">
+                    <input type="button" value="Binary" onclick="hex2Bin(document.getElementById('num').value)"/>
+                    <input type="button" value="Decimal" onclick="hex2Dec(document.getElementById('num').value)"/>
+                    <input type="button" value="Octal" onclick="hex2Oct(document.getElementById('num').value)"/>
+                </div>
+            </div>
+            <div class="button-group">
+                <p>From Octal to:</p>
+                <div id="oct">
+                    <input type="button" value="Binary" onclick="oct2Bin(document.getElementById('num').value)"/>
+                    <input type="button" value="Decimal" onclick="oct2Dec(document.getElementById('num').value)"/>
+                    <input type="button" value="Hexadecimal" onclick="oct2Hex(document.getElementById('num').value)"/>
+                </div>
+            </div>
+            <p id="conver">Resultado</p>
+        </div>
     </body>
 </html>

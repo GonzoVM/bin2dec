@@ -43,7 +43,7 @@ function excepHandler(num, opt) {
     if(opt == "oct") {
         for(let i = 0; i < num.toString().length; i++) {
             let j = num.toString()[i];
-            if(j >= 0 && j <= 8) {
+            if(j >= 0 && j <= 7) {
                 continue;
             } else {
                 return false;

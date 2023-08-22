@@ -1,6 +1,6 @@
-function excepHandler(num, opt) {
+function isValid(num, opt) {
   // bin numbers
-  if (opt == "bin") {
+  if (opt == "binary") {
     for (let i = 0; i < num.toString().length; i++) {
       if (num.toString()[i] == 0 || num.toString()[i] == 1) {
         continue;
@@ -12,7 +12,7 @@ function excepHandler(num, opt) {
   }
 
   //dec numbers
-  if (opt == "dec") {
+  if (opt == "decimal") {
     for (let i = 0; i < num.toString().length; i++) {
       let j = num.toString()[i];
       if (j >= 0 && j <= 9) {
@@ -25,7 +25,7 @@ function excepHandler(num, opt) {
   }
 
   // hex numbers
-  if (opt == "hex") {
+  if (opt == "hexadecimal") {
     for (let i = 0; i < num.toString().length; i++) {
       let j = num.toString()[i];
       if (j >= 0 && j <= 9) {
@@ -40,7 +40,7 @@ function excepHandler(num, opt) {
   }
 
   // oct numbers
-  if (opt == "oct") {
+  if (opt == "octal") {
     for (let i = 0; i < num.toString().length; i++) {
       let j = num.toString()[i];
       if (j >= 0 && j <= 7) {

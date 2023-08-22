@@ -1,226 +1,131 @@
 function bin2Dec(num) {
+  if (!isValid(num, "binary")) return displayWrongOutput("binary");
+
   let decimal = 0;
-  let binary = num;
 
-  if (excepHandler(binary, "bin")) {
-    // js parseint to translate a base 2 number to base 10.
-    decimal = parseInt(binary, 2);
-
-    // modifies the html file with the result.
-    document.getElementById("conversionOutput").innerHTML =
-      "This number in decimal is: <span id='result'></span>";
-    document.getElementById("result").innerHTML = decimal;
-    return decimal;
-  } else {
-    document.getElementById("conversionOutput").innerHTML =
-      "You entered a non binary number. Binary numbers only use 0 and 1.";
+  for (let i = num.toString().length - 1; i >= 0; i--) {
+    decimal += parseInt(num.toString()[i]) * Math.pow(2, num.toString().length - 1 - i);
   }
+  // js parseint to translate a base 2 number to base 10
+  // decimal = parseInt(binary, 2);
+  return displayOutput(decimal, "decimal");
 }
 
 function dec2Bin(num) {
+  if (!isValid(num, "decimal")) return displayWrongOutput("decimal");
+
   let binary = "";
-  let decimal = num;
-
-  if (excepHandler(decimal, "dec")) {
-    // js parseint to translate a base 10 number to base 2.
-    binary = parseInt(decimal, 10).toString(2);
-
-    // modifies the html file with the result.
-    document.getElementById("conversionOutput").innerHTML =
-      "This number in binary is: <span id='result'></span>";
-    document.getElementById("result").innerHTML = binary;
-    return binary;
-  } else {
-    document.getElementById("conversionOutput").innerHTML =
-      "You entered a non decimal number.";
+  // while loop to convert the number, it divides by 2 the number and concatenate the mod on the binary var.
+  while (num > 0) {
+    if (num % 2 == 1) {
+      binary = "1" + binary;
+    } else {
+      binary = "0" + binary;
+    }
+    num = Math.floor(num / 2);
   }
+  // js parseint to translate a base 10 number to base 2.
+  // binary = parseInt(num, 10).toString(2);
+  return displayOutput(binary, "binary");
 }
 
 function bin2Hex(num) {
+  if (!isValid(num, "binary")) return displayWrongOutput("binary");
+
   let hexadecimal;
-  let binary = num;
+  // js parseint to translate a base 2 number to base 16 and show it on uppercase.
+  hexadecimal = parseInt(num, 2).toString(16).toUpperCase();
 
-  if (excepHandler(binary, "bin")) {
-    // js parseint to translate a base 2 number to base 16 and show it on uppercase.
-    hexadecimal = parseInt(num, 2).toString(16).toUpperCase();
-
-    // modifies the html file with the result.
-    document.getElementById("conversionOutput").innerHTML =
-      "This number in hexadecimal is: <span id='result'></span>";
-    document.getElementById("result").innerHTML = hexadecimal;
-    return hexadecimal;
-  } else {
-    document.getElementById("conversionOutput").innerHTML =
-      "You entered a non binary number. Binary numbers only use 0 and 1.";
-  }
+  return displayOutput(hexadecimal, "hexadecimal");
 }
 
 function hex2Bin(num) {
-  let binary = "";
-  let hexadecimal = num;
+  if (!isValid(num, "hexadecimal")) return displayWrongOutput("hexadecimal");
 
-  if (excepHandler(hexadecimal, "hex")) {
-    // js parseint to convert a base 16 number to base 2.
-    binary = parseInt(hexadecimal, 16).toString(2);
+  let binary;
+  // js parseint to convert a base 16 number to base 2.
+  binary = parseInt(num, 16).toString(2);
 
-    // modifies the html file with the result.
-    document.getElementById("conversionOutput").innerHTML =
-      "This number in binary is: <span id='result'></span>";
-    document.getElementById("result").innerHTML = binary;
-    return binary;
-  } else {
-    document.getElementById("conversionOutput").innerHTML =
-      "You entered a non hexadecimal number. Hex numbers only use 0 to 9 and A to F.";
-  }
+  return displayOutput(binary, "binary");
 }
 
 function bin2Oct(num) {
+  if (!isValid(num, "binary")) return displayWrongOutput("binary");
+
   let octal;
-  let binary = num;
+  // js parseint to translate a base 2 number to base 8.
+  octal = parseInt(num, 2).toString(8);
 
-  if (excepHandler(binary, "bin")) {
-    // js parseint to translate a base 2 number to base 8.
-    octal = parseInt(binary, 2).toString(8);
-
-    // modifies the html file with the result.
-    document.getElementById("conversionOutput").innerHTML =
-      "This number in octal is: <span id='result'></span>";
-    document.getElementById("result").innerHTML = octal;
-    return octal;
-  } else {
-    document.getElementById("conversionOutput").innerHTML =
-      "You entered a non binary number. Binary numbers only use 0 and 1.";
-  }
+  return displayOutput(octal, "octal");
 }
 
 function oct2Bin(num) {
-  let binary = "";
-  let octal = num;
+  if (!isValid(num, "octal")) return displayWrongOutput("octal");
 
-  if (excepHandler(octal, "oct")) {
-    // js parseint to convert a base 8 number to base 2.
-    binary = parseInt(octal, 8).toString(2);
+  let binary;
+  // js parseint to convert a base 8 number to base 2.
+  binary = parseInt(num, 8).toString(2);
 
-    // modifies the html file with the result.
-    document.getElementById("conversionOutput").innerHTML =
-      "This number in binary is: <span id='result'></span>";
-    document.getElementById("result").innerHTML = binary;
-    return binary;
-  } else {
-    document.getElementById("conversionOutput").innerHTML =
-      "You entered a non octal number. Octal numbers only use 0 to 7.";
-  }
+  return displayOutput(binary, "binary");
 }
 
 function dec2Hex(num) {
-  let hexadecimal = "";
-  let decimal = num;
+  if (!isValid(num, "decimal")) return displayWrongOutput("decimal");
 
-  if (excepHandler(decimal, "dec")) {
-    // js parseint to convert a base 10 number to base 16.
-    hexadecimal = parseInt(decimal, 10).toString(16).toUpperCase();
+  let hexadecimal;
+  // js parseint to convert a base 10 number to base 16.
+  hexadecimal = parseInt(num, 10).toString(16).toUpperCase();
 
-    // modifies the html file with the result.
-    document.getElementById("conversionOutput").innerHTML =
-      "This number in hexadecimal is: <span id='result'></span>";
-    document.getElementById("result").innerHTML = hexadecimal;
-    return hexadecimal;
-  } else {
-    document.getElementById("conversionOutput").innerHTML =
-      "You entered a non decimal number.";
-  }
+  // modifies the html file with the result.
+
+  return displayOutput(hexadecimal, "hexadecimal");
 }
 
 function hex2Dec(num) {
-  let decimal = 0;
-  let hexadecimal = num;
+  if (!isValid(num, "hexadecimal")) return displayWrongOutput("hexadecimal");
 
-  if (excepHandler(hexadecimal, "hex")) {
-    // js parseint to translate a base 16 number to base 10.
-    decimal = parseInt(hexadecimal, 16);
+  let decimal;
+  // js parseint to translate a base 16 number to base 10.
+  decimal = parseInt(num, 16);
 
-    // modifies the html file with the result.
-    document.getElementById("conversionOutput").innerHTML =
-      "This number in decimal is: <span id='result'></span>";
-    document.getElementById("result").innerHTML = decimal;
-    return decimal;
-  } else {
-    document.getElementById("conversionOutput").innerHTML =
-      "You entered a non hexadeimal number. Hex numbers only use 0 to 9 and A to F.";
-  }
+  return displayOutput(decimal, "decimal");
 }
 
 function dec2Oct(num) {
+  if (!isValid(num, "decimal")) return displayWrongOutput("decimal");
+
   let octal;
-  let decimal = num;
+  // js parseint to translate a base 10 number to base 8.
+  octal = parseInt(num, 10).toString(8);
 
-  if (excepHandler(decimal, "dec")) {
-    // js parseint to translate a base 10 number to base 8.
-    octal = parseInt(decimal, 10).toString(8);
-
-    // modifies the html file with the result.
-    document.getElementById("conversionOutput").innerHTML =
-      "This number in octal is: <span id='result'></span>";
-    document.getElementById("result").innerHTML = octal;
-    return octal;
-  } else {
-    document.getElementById("conversionOutput").innerHTML =
-      "You entered a non decimal number.";
-  }
+  return displayOutput(octal, "octal");
 }
 
 function oct2Dec(num) {
-  let decimal = "";
-  let octal = num;
+  if (!isValid(num, "octal")) return displayWrongOutput("octal");
 
-  if (excepHandler(octal, "oct")) {
-    // js parseint to convert a base 8 number to base 10.
-    decimal = parseInt(octal, 8);
+  let decimal;
+  // js parseint to convert a base 8 number to base 10.
+  decimal = parseInt(num, 8);
 
-    // modifies the html file with the result.
-    document.getElementById("conversionOutput").innerHTML =
-      "This number in decimal is: <span id='result'></span>";
-    document.getElementById("result").innerHTML = decimal;
-    return decimal;
-  } else {
-    document.getElementById("conversionOutput").innerHTML =
-      "You entered a non octal number. Octal numbers only use 0 to 7.";
-  }
+  return displayOutput(decimal, "decimal");
 }
 function hex2Oct(num) {
+  if (!isValid(num, "hexadecimal")) return displayWrongOutput("hexadecimal");
+
   let octal;
-  let hexadecimal = num;
+  // js parseint to translate a base 16 number to base 8.
+  octal = parseInt(num, 16).toString(8);
 
-  if (excepHandler(hexadecimal, "hex")) {
-    // js parseint to translate a base 16 number to base 8.
-    octal = parseInt(hexadecimal, 16).toString(8);
-
-    // modifies the html file with the result.
-    document.getElementById("conversionOutput").innerHTML =
-      "This number in octal is: <span id='result'></span>";
-    document.getElementById("result").innerHTML = octal;
-    return octal;
-  } else {
-    document.getElementById("conversionOutput").innerHTML =
-      "You entered a non hexadeimal number. Hex numbers only use 0 to 9 and A to F.";
-  }
+  return displayOutput(octal, "octal");
 }
 
 function oct2Hex(num) {
-  let hexadecimal = "";
-  let octal = num;
+  if (!isValid(num, "octal")) return displayWrongOutput("octal");
 
-  if (excepHandler(octal, "oct")) {
-    // js parseint to convert a base 16 number to base 10.
-    hexadecimal = parseInt(octal, 8).toString(16).toUpperCase();
+  let hexadecimal;
+  // js parseint to convert a base 16 number to base 10.
+  hexadecimal = parseInt(num, 8).toString(16).toUpperCase();
 
-    // modifies the html file with the result.
-    document.getElementById("conversionOutput").innerHTML =
-      "This number in hexadecimal is: <span id='result'></span>";
-    document.getElementById("result").innerHTML = hexadecimal;
-    return hexadecimal;
-  } else {
-    document.getElementById("conversionOutput").innerHTML =
-      "You entered a non octal number. Octal numbers only use 0 to 7.";
-  }
+  return displayOutput(hexadecimal, "hexadecimal");
 }

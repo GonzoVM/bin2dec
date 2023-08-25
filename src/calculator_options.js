@@ -6,9 +6,6 @@ function bin2Dec(num) {
   }
 
   return decimal;
-  // js parseint to translate a base 2 number to base 10
-  // decimal = parseInt(binary, 2);
-  // return displayOutput(decimal, "decimal");
 }
 
 function dec2Bin(num) {
@@ -22,8 +19,7 @@ function dec2Bin(num) {
     }
     num = Math.floor(num / 2);
   }
-  // js parseint to translate a base 10 number to base 2.
-  // binary = parseInt(num, 10).toString(2);
+  
   return binary;
 }
 
@@ -32,12 +28,10 @@ function bin2Hex(num) {
   // js parseint to translate a base 2 number to base 16 and show it on uppercase.
   hexadecimal = parseInt(num, 2).toString(16).toUpperCase();
 
-  return hexadecimal; //displayOutput(hexadecimal, "hexadecimal");
+  return hexadecimal;
 }
 
 function hex2Bin(num) {
-  if (!isValid(num, "hexadecimal")) return displayWrongOutput("hexadecimal");
-
   let binary;
   // js parseint to convert a base 16 number to base 2.
   binary = parseInt(num, 16).toString(2);
@@ -65,8 +59,6 @@ function dec2Hex(num) {
   let hexadecimal;
   // js parseint to convert a base 10 number to base 16.
   hexadecimal = parseInt(num, 10).toString(16).toUpperCase();
-
-  // modifies the html file with the result.
 
   return hexadecimal;
 }

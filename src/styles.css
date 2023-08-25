@@ -28,3 +28,9 @@ header h1 {
   position: relative;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+#conversionOutput {
+  padding: 10px;
+  background-color:aquamarine;
+  border-radius: 25px;
+}

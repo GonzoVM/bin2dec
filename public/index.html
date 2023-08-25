@@ -1,148 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <script src="../src/number_validator.js"></script>
-    <script src="../src/display_output.js"></script>
-    <script src="../src/calculator_options.js"></script>
-    <link rel="stylesheet" href="../src/styles.css" />
-  </head>
-  <body>
-    <noscript>Activate javascript on your browser to run this app.</noscript>
-    <header>
-      <h1>Base<sub>x</sub> conversor</h1>
-    </header>
-    <div id="container">
-      <label for="num">Enter the value to convert:</label>
-      <input
-        type="text"
-        id="num"
-        name="name"
-        required
-        minlength="1"
-        maxlength="16"
-        placeholder="input here"
-      />
-      <div class="button-group">
-        <p>
-          From
-          <span title="binary numbers are base2 numbers, only contains 0 or 1"
-            >binary*</span
-          >
-          to:
-        </p>
-        <div id="bin">
-          <input
-            id="bin2Dec"
-            type="button"
-            value="decimal"
-            onclick="changeNumber('bin2Dec')"
-          />
-          <input
-            id="bin2Hex"
-            type="button"
-            value="hexadecimal"
-            onclick="changeNumber('bin2Hex')"
-          />
-          <input
-            id="bin2Oct"
-            type="button"
-            value="octal"
-            onclick="changeNumber('bin2Oct')"
-          />
-        </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <script src="../src/number_validator.js"></script>
+  <script src="../src/display_output.js"></script>
+  <script src="../src/calculator_options.js"></script>
+  <link rel="stylesheet" href="../src/styles.css" />
+</head>
+
+<body>
+  <noscript>Activate javascript on your browser to run this app.</noscript>
+  <header>
+    <h1>Base<sub>x</sub> conversor</h1>
+  </header>
+  <div id="container">
+    <label for="num">Enter the value to convert:</label>
+    <input type="text" id="num" name="name" required minlength="1" maxlength="16" placeholder="input here" />
+    <div class="button-group">
+      <p>
+        From
+        <span title="binary numbers are base2 numbers, only contains 0 or 1">binary*</span>
+        to:
+      </p>
+      <div id="bin">
+        <input id="bin2Dec" type="button" value="decimal" onclick="changeNumber('bin2Dec')" />
+        <input id="bin2Hex" type="button" value="hexadecimal" onclick="changeNumber('bin2Hex')" />
+        <input id="bin2Oct" type="button" value="octal" onclick="changeNumber('bin2Oct')" />
       </div>
-      <div class="button-group">
-        <p>
-          From
-          <span
-            title="decimal numbers are base10 numbers, it contains numbers from 0 to 9"
-            >decimal*</span
-          >
-          to:
-        </p>
-        <div id="dec">
-          <input
-            id="dec2Bin"
-            type="button"
-            value="binary"
-            onclick="changeNumber('dec2Bin')"
-          />
-          <input
-            id="dec2Hex"
-            type="button"
-            value="hexadecimal"
-            onclick="changeNumber('dec2Hex')"
-          />
-          <input
-            id="dec2Oct"
-            type="button"
-            value="octal"
-            onclick="changeNumber('dec2Oct')"
-          />
-        </div>
-      </div>
-      <div class="button-group">
-        <p>
-          From
-          <span
-            title="hexadecimal numbers are base16 numbers, it contains numbers from 0 to 9 and from 10 to 15 the numbers are replace with letters from A to F"
-            >hexadecimal*</span
-          >
-          to:
-        </p>
-        <div id="hex">
-          <input
-            id="hex2Bin"
-            type="button"
-            value="binary"
-            onclick="changeNumber('hex2Bin')"
-          />
-          <input
-            id="hex2Dec"
-            type="button"
-            value="decimal"
-            onclick="changeNumber('hex2Dec')"
-          />
-          <input
-            id="hex2Oct"
-            type="button"
-            value="octal"
-            onclick="changeNumber('hex2Oct')"
-          />
-        </div>
-      </div>
-      <div class="button-group">
-        <p>
-          From
-          <span
-            title="octal numbers are base8 numbers, it contains numbers from 0 to 7"
-            >octal*</span
-          >
-          to:
-        </p>
-        <div id="oct">
-          <input
-            id="oct2Bin"
-            type="button"
-            value="binary"
-            onclick="changeNumber('oct2Bin')"
-          />
-          <input
-            id="oct2Dec"
-            type="button"
-            value="decimal"
-            onclick="changeNumber('oct2Dec')"
-          />
-          <input
-            id="oct2Hex"
-            type="button"
-            value="hexadecimal"
-            onclick="changeNumber('oct2Hex')"
-          />
-        </div>
-      </div>
-      <p id="conversionOutput">Result:</p>
     </div>
-  </body>
+    <div class="button-group">
+      <p>
+        From
+        <span title="decimal numbers are base10 numbers, it contains numbers from 0 to 9">decimal*</span>
+        to:
+      </p>
+      <div id="dec">
+        <input id="dec2Bin" type="button" value="binary" onclick="changeNumber('dec2Bin')" />
+        <input id="dec2Hex" type="button" value="hexadecimal" onclick="changeNumber('dec2Hex')" />
+        <input id="dec2Oct" type="button" value="octal" onclick="changeNumber('dec2Oct')" />
+      </div>
+    </div>
+    <div class="button-group">
+      <p>
+        From
+        <span
+          title="hexadecimal numbers are base16 numbers, it contains numbers from 0 to 9 and from 10 to 15 the numbers are replace with letters from A to F">hexadecimal*</span>
+        to:
+      </p>
+      <div id="hex">
+        <input id="hex2Bin" type="button" value="binary" onclick="changeNumber('hex2Bin')" />
+        <input id="hex2Dec" type="button" value="decimal" onclick="changeNumber('hex2Dec')" />
+        <input id="hex2Oct" type="button" value="octal" onclick="changeNumber('hex2Oct')" />
+      </div>
+    </div>
+    <div class="button-group">
+      <p>
+        From
+        <span title="octal numbers are base8 numbers, it contains numbers from 0 to 7">octal*</span>
+        to:
+      </p>
+      <div id="oct">
+        <input id="oct2Bin" type="button" value="binary" onclick="changeNumber('oct2Bin')" />
+        <input id="oct2Dec" type="button" value="decimal" onclick="changeNumber('oct2Dec')" />
+        <input id="oct2Hex" type="button" value="hexadecimal" onclick="changeNumber('oct2Hex')" />
+      </div>
+    </div>
+    <p id="conversionOutput">Result:</p>
+  </div>
+</body>
+
 </html>

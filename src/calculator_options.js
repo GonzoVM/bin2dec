@@ -1,19 +1,14 @@
-function bin2Dec(num) {
-  if (!isValid(num, "binary")) return displayWrongOutput("binary");
-
+function binToDec(num) {
   let decimal = 0;
 
   for (let i = num.toString().length - 1; i >= 0; i--) {
     decimal += parseInt(num.toString()[i]) * Math.pow(2, num.toString().length - 1 - i);
   }
-  // js parseint to translate a base 2 number to base 10
-  // decimal = parseInt(binary, 2);
-  return displayOutput(decimal, "decimal");
+
+  return decimal;
 }
 
-function dec2Bin(num) {
-  if (!isValid(num, "decimal")) return displayWrongOutput("decimal");
-
+function decToBin(num) {
   let binary = "";
   // while loop to convert the number, it divides by 2 the number and concatenate the mod on the binary var.
   while (num > 0) {
@@ -24,24 +19,19 @@ function dec2Bin(num) {
     }
     num = Math.floor(num / 2);
   }
-  // js parseint to translate a base 10 number to base 2.
-  // binary = parseInt(num, 10).toString(2);
-  return displayOutput(binary, "binary");
+  
+  return binary;
 }
 
-function bin2Hex(num) {
-  if (!isValid(num, "binary")) return displayWrongOutput("binary");
-
+function binToHex(num) {
   let hexadecimal;
   // js parseint to translate a base 2 number to base 16 and show it on uppercase.
   hexadecimal = parseInt(num, 2).toString(16).toUpperCase();
 
-  return displayOutput(hexadecimal, "hexadecimal");
+  return hexadecimal;
 }
 
-function hex2Bin(num) {
-  if (!isValid(num, "hexadecimal")) return displayWrongOutput("hexadecimal");
-
+function hexToBin(num) {
   let binary;
   // js parseint to convert a base 16 number to base 2.
   binary = parseInt(num, 16).toString(2);
@@ -49,83 +39,69 @@ function hex2Bin(num) {
   return displayOutput(binary, "binary");
 }
 
-function bin2Oct(num) {
-  if (!isValid(num, "binary")) return displayWrongOutput("binary");
-
+function binToOct(num) {
   let octal;
   // js parseint to translate a base 2 number to base 8.
   octal = parseInt(num, 2).toString(8);
 
-  return displayOutput(octal, "octal");
+  return octal;
 }
 
-function oct2Bin(num) {
-  if (!isValid(num, "octal")) return displayWrongOutput("octal");
-
+function octToBin(num) {
   let binary;
   // js parseint to convert a base 8 number to base 2.
   binary = parseInt(num, 8).toString(2);
 
-  return displayOutput(binary, "binary");
+  return binary;
 }
 
-function dec2Hex(num) {
-  if (!isValid(num, "decimal")) return displayWrongOutput("decimal");
-
+function decToHex(num) {
   let hexadecimal;
   // js parseint to convert a base 10 number to base 16.
   hexadecimal = parseInt(num, 10).toString(16).toUpperCase();
 
-  // modifies the html file with the result.
-
-  return displayOutput(hexadecimal, "hexadecimal");
+  return hexadecimal;
 }
 
-function hex2Dec(num) {
-  if (!isValid(num, "hexadecimal")) return displayWrongOutput("hexadecimal");
-
+function hexToDec(num) {
   let decimal;
   // js parseint to translate a base 16 number to base 10.
   decimal = parseInt(num, 16);
 
-  return displayOutput(decimal, "decimal");
+  return decimal;
 }
 
-function dec2Oct(num) {
-  if (!isValid(num, "decimal")) return displayWrongOutput("decimal");
-
+function decToOct(num) {
   let octal;
   // js parseint to translate a base 10 number to base 8.
   octal = parseInt(num, 10).toString(8);
 
-  return displayOutput(octal, "octal");
+  return octal;
 }
 
-function oct2Dec(num) {
-  if (!isValid(num, "octal")) return displayWrongOutput("octal");
-
+function octToDec(num) {
   let decimal;
   // js parseint to convert a base 8 number to base 10.
   decimal = parseInt(num, 8);
 
-  return displayOutput(decimal, "decimal");
+  return decimal;
 }
-function hex2Oct(num) {
-  if (!isValid(num, "hexadecimal")) return displayWrongOutput("hexadecimal");
-
+function hexToOct(num) {
   let octal;
   // js parseint to translate a base 16 number to base 8.
   octal = parseInt(num, 16).toString(8);
 
-  return displayOutput(octal, "octal");
+  return octal;
 }
 
-function oct2Hex(num) {
-  if (!isValid(num, "octal")) return displayWrongOutput("octal");
-
+function octToHex(num) {
   let hexadecimal;
   // js parseint to convert a base 16 number to base 10.
   hexadecimal = parseInt(num, 8).toString(16).toUpperCase();
 
-  return displayOutput(hexadecimal, "hexadecimal");
+  return hexadecimal;
 }
+
+
+
+

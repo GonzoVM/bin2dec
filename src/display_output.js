@@ -14,12 +14,11 @@ function handleConversion(srcFormat, targetFormat) {
         displayOutput(binToOct(num), targetFormat);
         break;
       default:
-        return alert("what did you do? 1");
+        return alert("what did you do?");
     }
   } else if ((srcFormat == "decimal")) {
     switch (targetFormat) {
       case "binary":
-        alert ("que pasa");
         displayOutput(decToBin(num), targetFormat);
         break;
       case "hexadecimal":
@@ -29,7 +28,7 @@ function handleConversion(srcFormat, targetFormat) {
         displayOutput(decToOct(num), targetFormat);
         break;
       default:
-        return alert("What did you do? 2");
+        return alert("What did you do?");
     }
   } else if ((srcFormat == "hexadecimal")) {
     switch (targetFormat) {
@@ -43,7 +42,7 @@ function handleConversion(srcFormat, targetFormat) {
         displayOutput(hexToOct(num), targetFormat);
         break;
       default:
-        return alert("What did you do? 3");
+        return alert("What did you do?");
     }
   } else if ((srcFormat == "octal")) {
     switch (targetFormat) {
@@ -57,7 +56,7 @@ function handleConversion(srcFormat, targetFormat) {
         displayOutput(octToHex(num), targetFormat);
         break;
       default:
-        return alert("whta did you do? 4");
+        return alert("whta did you do?");
     }
   }
 }

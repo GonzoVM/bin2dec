@@ -2,7 +2,7 @@ function handleConversion(srcFormat, targetFormat) {
   let num = document.getElementById("num").value;
   if (!isValid(num, srcFormat)) return displayWrongOutput(srcFormat);
 
-  if ((srcFormat == "binary")) {
+  if (srcFormat === "binary") {
     switch (targetFormat) {
       case "decimal":
         displayOutput(binToDec(num), targetFormat);
@@ -16,7 +16,7 @@ function handleConversion(srcFormat, targetFormat) {
       default:
         return alert("what did you do?");
     }
-  } else if ((srcFormat == "decimal")) {
+  } else if (srcFormat === "decimal") {
     switch (targetFormat) {
       case "binary":
         displayOutput(decToBin(num), targetFormat);
@@ -30,7 +30,7 @@ function handleConversion(srcFormat, targetFormat) {
       default:
         return alert("What did you do?");
     }
-  } else if ((srcFormat == "hexadecimal")) {
+  } else if (srcFormat === "hexadecimal") {
     switch (targetFormat) {
       case "binary":
         displayOutput(hexToBin(num), targetFormat);
@@ -44,7 +44,7 @@ function handleConversion(srcFormat, targetFormat) {
       default:
         return alert("What did you do?");
     }
-  } else if ((srcFormat == "octal")) {
+  } else if (srcFormat === "octal") {
     switch (targetFormat) {
       case "binary":
         displayOutput(octToBin(num), targetFormat);

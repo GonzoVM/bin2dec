@@ -44,7 +44,7 @@ function bin2Oct(num) {
   // js parseint to translate a base 2 number to base 8.
   octal = parseInt(num, 2).toString(8);
 
-  return octal; // displayOutput(octal, "octal");
+  return octal;
 }
 
 function oct2Bin(num) {

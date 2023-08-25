@@ -1,79 +1,72 @@
-function handleConversion(conversionType) {
+function handleConversion(srcFormat, targetFormat) {
   let num = document.getElementById("num").value;
-  let outputFormat = document.getElementById(conversionType).value;
-  let inputNumber;
+  if (!isValid(num, srcFormat)) return displayWrongOutput(srcFormat);
 
-  switch (conversionType) {
-    case "binToDec":
-      inputNumber = "binary";
-      if (!isValid(num, inputNumber)) return displayWrongOutput(inputNumber);
-      displayOutput(binToDec(num), outputFormat);
-      break;
-    case "binToHex":
-      inputNumber = "binary";
-      if (!isValid(num, inputNumber)) return displayWrongOutput(inputNumber);
-      displayOutput(binToHex(num), outputFormat);
-      break;
-    case "binToOct":
-      inputNumber = "binary";
-      if (!isValid(num, inputNumber)) return displayWrongOutput(inputNumber);
-      displayOutput(binToOct(num), outputFormat);
-      break;
-    case "decToBin":
-      inputNumber = "decimal";
-      if (!isValid(num, inputNumber)) return displayWrongOutput(inputNumber);
-      displayOutput(decToBin(num), outputFormat);
-      break;
-    case "decToHex":
-      inputNumber = "decimal";
-      if (!isValid(num, inputNumber)) return displayWrongOutput(inputNumber);
-      displayOutput(decToHex(num), outputFormat);
-      break;
-    case "decToOct":
-      inputNumber = "decimal";
-      if (!isValid(num, inputNumber)) return displayWrongOutput(inputNumber);
-      displayOutput(decToOct(num), outputFormat);
-      break;
-    case "hexToBin":
-      inputNumber = "hexadecimal";
-      if (!isValid(num, inputNumber)) return displayWrongOutput(inputNumber);
-      displayOutput(hexToBin(num), outputFormat);
-      break;
-    case "hexToDec":
-      inputNumber = "hexadecimal";
-      if (!isValid(num, inputNumber)) return displayWrongOutput(inputNumber);
-      displayOutput(hexToDec(num), outputFormat);
-      break;
-    case "hexToOct":
-      inputNumber = "hexadecimal";
-      if (!isValid(num, inputNumber)) return displayWrongOutput(inputNumber);
-      displayOutput(hexToOct(num), outputFormat);
-      break;
-    case "octToBin":
-      inputNumber = "octal";
-      if (!isValid(num, inputNumber)) return displayWrongOutput(inputNumber);
-      displayOutput(octToBin(num), outputFormat);
-      break;
-    case "octToDec":
-      inputNumber = "octal";
-      if (!isValid(num, inputNumber)) return displayWrongOutput(inputNumber);
-      displayOutput(octToDec(num), outputFormat);
-      break;
-    case "octToHex":
-      inputNumber = "octal";
-      if (!isValid(num, inputNumber)) return displayWrongOutput(inputNumber);
-      displayOutput(octToHex(num), outputFormat);
-      break;
-    default:
-      return alert("whta did you do?");
+  if ((srcFormat == "binary")) {
+    switch (targetFormat) {
+      case "decimal":
+        displayOutput(binToDec(num), targetFormat);
+        break;
+      case "hexadecimal":
+        displayOutput(binToHex(num), targetFormat);
+        break;
+      case "octal":
+        displayOutput(binToOct(num), targetFormat);
+        break;
+      default:
+        return alert("what did you do? 1");
+    }
+  } else if ((srcFormat == "decimal")) {
+    switch (targetFormat) {
+      case "binary":
+        alert ("que pasa");
+        displayOutput(decToBin(num), targetFormat);
+        break;
+      case "hexadecimal":
+        displayOutput(decToHex(num), targetFormat);
+        break;
+      case "octal":
+        displayOutput(decToOct(num), targetFormat);
+        break;
+      default:
+        return alert("What did you do? 2");
+    }
+  } else if ((srcFormat == "hexadecimal")) {
+    switch (targetFormat) {
+      case "binary":
+        displayOutput(hexToBin(num), targetFormat);
+        break;
+      case "decimal":
+        displayOutput(hexToDec(num), targetFormat);
+        break;
+      case "octal":
+        displayOutput(hexToOct(num), targetFormat);
+        break;
+      default:
+        return alert("What did you do? 3");
+    }
+  } else if ((srcFormat == "octal")) {
+    switch (targetFormat) {
+      case "binary":
+        displayOutput(octToBin(num), targetFormat);
+        break;
+      case "decimal":
+        displayOutput(octToDec(num), targetFormat);
+        break;
+      case "hexadecimal":
+        displayOutput(octToHex(num), targetFormat);
+        break;
+      default:
+        return alert("whta did you do? 4");
+    }
   }
 }
 
-function displayOutput(displayNumber, outputFormat) {
+function displayOutput(displayNumber, targetFormat) {
   // modifies the html file with the result.
   document.getElementById("conversionOutput").innerHTML =
-    "The number in <span id='outputFormat'></span> is: <span id='result'></span>";
-  document.getElementById("outputFormat").innerHTML = outputFormat;
+    "The number in <span id='targetFormat'></span> is: <span id='result'></span>";
+  document.getElementById("targetFormat").innerHTML = targetFormat;
   document.getElementById("result").innerHTML = displayNumber;
 
   return displayNumber;

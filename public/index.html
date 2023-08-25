@@ -24,9 +24,9 @@
         to:
       </p>
       <div id="bin">
-        <input id="bin2Dec" type="button" value="decimal" onclick="changeNumber('bin2Dec')" />
-        <input id="bin2Hex" type="button" value="hexadecimal" onclick="changeNumber('bin2Hex')" />
-        <input id="bin2Oct" type="button" value="octal" onclick="changeNumber('bin2Oct')" />
+        <input id="binToDec" type="button" value="decimal" onclick="handleConversion('binToDec')" />
+        <input id="binToHex" type="button" value="hexadecimal" onclick="handleConversion('binToHex')" />
+        <input id="binToOct" type="button" value="octal" onclick="handleConversion('binToOct')" />
       </div>
     </div>
     <div class="button-group">
@@ -36,9 +36,9 @@
         to:
       </p>
       <div id="dec">
-        <input id="dec2Bin" type="button" value="binary" onclick="changeNumber('dec2Bin')" />
-        <input id="dec2Hex" type="button" value="hexadecimal" onclick="changeNumber('dec2Hex')" />
-        <input id="dec2Oct" type="button" value="octal" onclick="changeNumber('dec2Oct')" />
+        <input id="decToBin" type="button" value="binary" onclick="handleConversion('decToBin')" />
+        <input id="decToHex" type="button" value="hexadecimal" onclick="handleConversion('decToHex')" />
+        <input id="decToOct" type="button" value="octal" onclick="handleConversion('decToOct')" />
       </div>
     </div>
     <div class="button-group">
@@ -49,9 +49,9 @@
         to:
       </p>
       <div id="hex">
-        <input id="hex2Bin" type="button" value="binary" onclick="changeNumber('hex2Bin')" />
-        <input id="hex2Dec" type="button" value="decimal" onclick="changeNumber('hex2Dec')" />
-        <input id="hex2Oct" type="button" value="octal" onclick="changeNumber('hex2Oct')" />
+        <input id="hexToBin" type="button" value="binary" onclick="handleConversion('hexToBin')" />
+        <input id="hexToDec" type="button" value="decimal" onclick="handleConversion('hexToDec')" />
+        <input id="hexToOct" type="button" value="octal" onclick="handleConversion('hexToOct')" />
       </div>
     </div>
     <div class="button-group">
@@ -61,12 +61,12 @@
         to:
       </p>
       <div id="oct">
-        <input id="oct2Bin" type="button" value="binary" onclick="changeNumber('oct2Bin')" />
-        <input id="oct2Dec" type="button" value="decimal" onclick="changeNumber('oct2Dec')" />
-        <input id="oct2Hex" type="button" value="hexadecimal" onclick="changeNumber('oct2Hex')" />
+        <input id="octToBin" type="button" value="binary" onclick="handleConversion('octToBin')" />
+        <input id="octToDec" type="button" value="decimal" onclick="handleConversion('octToDec')" />
+        <input id="octToHex" type="button" value="hexadecimal" onclick="handleConversion('octToHex')" />
       </div>
     </div>
-    <p id="conversionOutput">Result:</p>
+    <p id="conversionOutput">Result goes here.</p>
   </div>
 </body>
 

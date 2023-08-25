@@ -1,68 +1,68 @@
-function changeNumber(conversionType) {
+function handleConversion(conversionType) {
   let num = document.getElementById("num").value;
   let outputFormat = document.getElementById(conversionType).value;
   let inputNumber;
 
   switch (conversionType) {
-    case "bin2Dec":
+    case "binToDec":
       inputNumber = "binary";
       if (!isValid(num, inputNumber)) return displayWrongOutput(inputNumber);
-      displayOutput(bin2Dec(num), outputFormat);
+      displayOutput(binToDec(num), outputFormat);
       break;
-    case "bin2Hex":
+    case "binToHex":
       inputNumber = "binary";
       if (!isValid(num, inputNumber)) return displayWrongOutput(inputNumber);
-      displayOutput(bin2Hex(num), outputFormat);
+      displayOutput(binToHex(num), outputFormat);
       break;
-    case "bin2Oct":
+    case "binToOct":
       inputNumber = "binary";
       if (!isValid(num, inputNumber)) return displayWrongOutput(inputNumber);
-      displayOutput(bin2Oct(num), outputFormat);
+      displayOutput(binToOct(num), outputFormat);
       break;
-    case "dec2Bin":
+    case "decToBin":
       inputNumber = "decimal";
       if (!isValid(num, inputNumber)) return displayWrongOutput(inputNumber);
-      displayOutput(dec2Bin(num), outputFormat);
+      displayOutput(decToBin(num), outputFormat);
       break;
-    case "dec2Hex":
+    case "decToHex":
       inputNumber = "decimal";
       if (!isValid(num, inputNumber)) return displayWrongOutput(inputNumber);
-      displayOutput(dec2Hex(num), outputFormat);
+      displayOutput(decToHex(num), outputFormat);
       break;
-    case "dec2Oct":
+    case "decToOct":
       inputNumber = "decimal";
       if (!isValid(num, inputNumber)) return displayWrongOutput(inputNumber);
-      displayOutput(dec2Oct(num), outputFormat);
+      displayOutput(decToOct(num), outputFormat);
       break;
-    case "hex2Bin":
+    case "hexToBin":
       inputNumber = "hexadecimal";
       if (!isValid(num, inputNumber)) return displayWrongOutput(inputNumber);
-      displayOutput(hex2Bin(num), outputFormat);
+      displayOutput(hexToBin(num), outputFormat);
       break;
-    case "hex2Dec":
+    case "hexToDec":
       inputNumber = "hexadecimal";
       if (!isValid(num, inputNumber)) return displayWrongOutput(inputNumber);
-      displayOutput(hex2Dec(num), outputFormat);
+      displayOutput(hexToDec(num), outputFormat);
       break;
-    case "hex2Oct":
+    case "hexToOct":
       inputNumber = "hexadecimal";
       if (!isValid(num, inputNumber)) return displayWrongOutput(inputNumber);
-      displayOutput(hex2Oct(num), outputFormat);
+      displayOutput(hexToOct(num), outputFormat);
       break;
-    case "oct2Bin":
+    case "octToBin":
       inputNumber = "octal";
       if (!isValid(num, inputNumber)) return displayWrongOutput(inputNumber);
-      displayOutput(oct2Bin(num), outputFormat);
+      displayOutput(octToBin(num), outputFormat);
       break;
-    case "oct2Dec":
+    case "octToDec":
       inputNumber = "octal";
       if (!isValid(num, inputNumber)) return displayWrongOutput(inputNumber);
-      displayOutput(oct2Dec(num), outputFormat);
+      displayOutput(octToDec(num), outputFormat);
       break;
-    case "oct2Hex":
+    case "octToHex":
       inputNumber = "octal";
       if (!isValid(num, inputNumber)) return displayWrongOutput(inputNumber);
-      displayOutput(oct2Hex(num), outputFormat);
+      displayOutput(octToHex(num), outputFormat);
       break;
     default:
       return alert("whta did you do?");

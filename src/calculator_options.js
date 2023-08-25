@@ -1,4 +1,4 @@
-function bin2Dec(num) {
+function binToDec(num) {
   let decimal = 0;
 
   for (let i = num.toString().length - 1; i >= 0; i--) {
@@ -8,7 +8,7 @@ function bin2Dec(num) {
   return decimal;
 }
 
-function dec2Bin(num) {
+function decToBin(num) {
   let binary = "";
   // while loop to convert the number, it divides by 2 the number and concatenate the mod on the binary var.
   while (num > 0) {
@@ -23,7 +23,7 @@ function dec2Bin(num) {
   return binary;
 }
 
-function bin2Hex(num) {
+function binToHex(num) {
   let hexadecimal;
   // js parseint to translate a base 2 number to base 16 and show it on uppercase.
   hexadecimal = parseInt(num, 2).toString(16).toUpperCase();
@@ -31,7 +31,7 @@ function bin2Hex(num) {
   return hexadecimal;
 }
 
-function hex2Bin(num) {
+function hexToBin(num) {
   let binary;
   // js parseint to convert a base 16 number to base 2.
   binary = parseInt(num, 16).toString(2);
@@ -39,7 +39,7 @@ function hex2Bin(num) {
   return displayOutput(binary, "binary");
 }
 
-function bin2Oct(num) {
+function binToOct(num) {
   let octal;
   // js parseint to translate a base 2 number to base 8.
   octal = parseInt(num, 2).toString(8);
@@ -47,7 +47,7 @@ function bin2Oct(num) {
   return octal;
 }
 
-function oct2Bin(num) {
+function octToBin(num) {
   let binary;
   // js parseint to convert a base 8 number to base 2.
   binary = parseInt(num, 8).toString(2);
@@ -55,7 +55,7 @@ function oct2Bin(num) {
   return binary;
 }
 
-function dec2Hex(num) {
+function decToHex(num) {
   let hexadecimal;
   // js parseint to convert a base 10 number to base 16.
   hexadecimal = parseInt(num, 10).toString(16).toUpperCase();
@@ -63,7 +63,7 @@ function dec2Hex(num) {
   return hexadecimal;
 }
 
-function hex2Dec(num) {
+function hexToDec(num) {
   let decimal;
   // js parseint to translate a base 16 number to base 10.
   decimal = parseInt(num, 16);
@@ -71,7 +71,7 @@ function hex2Dec(num) {
   return decimal;
 }
 
-function dec2Oct(num) {
+function decToOct(num) {
   let octal;
   // js parseint to translate a base 10 number to base 8.
   octal = parseInt(num, 10).toString(8);
@@ -79,14 +79,14 @@ function dec2Oct(num) {
   return octal;
 }
 
-function oct2Dec(num) {
+function octToDec(num) {
   let decimal;
   // js parseint to convert a base 8 number to base 10.
   decimal = parseInt(num, 8);
 
   return decimal;
 }
-function hex2Oct(num) {
+function hexToOct(num) {
   let octal;
   // js parseint to translate a base 16 number to base 8.
   octal = parseInt(num, 16).toString(8);
@@ -94,7 +94,7 @@ function hex2Oct(num) {
   return octal;
 }
 
-function oct2Hex(num) {
+function octToHex(num) {
   let hexadecimal;
   // js parseint to convert a base 16 number to base 10.
   hexadecimal = parseInt(num, 8).toString(16).toUpperCase();

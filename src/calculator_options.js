@@ -44,7 +44,6 @@ function hexToBin(num) {
 
   return parseInt(binary);
 }
-// console.log(hexToBin("12a4"));
 
 function hexToDec(num) {
   let decimal = 0;
@@ -62,8 +61,6 @@ function hexToDec(num) {
 
   return decimal;
 }
-// console.log(decToHex(4772));
-
 
 function octToDec(num) {
   let decimal = 0;
@@ -124,38 +121,23 @@ function octToHex(num) {
 // console.log(hexToDec("12A4"));
 // console.log(decToHex(4772));
 
-function hexTranslator(num) {
+function hexTranslator(num,srcFormat) {
   let actualNumber;
-  if (num >= 0 && num <= 9) {
-    actualNumber = parseInt(num);
+
+  if (srcFormat == "hexadecimal") {
+    if (num >= 0 && num <= 9) {
+      actualNumber = parseInt(num);
+    } else {
+      actualNumber = num.toUpperCase().charCodeAt(0) - 55;
+    }
   } else {
-    switch (num.toString().toUpperCase()) {
-      case "A":
-        actualNumber = 10;
-        break;
-      case "B":
-        actualNumber = 11;
-        break;
-      case "C":
-        actualNumber = 12;
-        break;
-      case "D":
-        actualNumber = 13;
-        break;
-      case "E":
-        actualNumber = 14;
-        break;
-      case "F":
-        actualNumber = 15;
-        break;
-      default:
-        actualNumber = parseInt(num.toString());
+    if (num >= 0 && num <= 9) {
+      actualNumber = parseInt(num);
+    } else {
+      actualNumber = String.fromCharCode(parseInt(num) + 55);
     }
   }
-
   return actualNumber;
 }
 
-
-
-
+console.log(hexTranslator("F", "hexadecimal"));

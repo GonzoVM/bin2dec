@@ -8,6 +8,27 @@ function binToDec(num) {
   return decimal;
 }
 
+function binToHex(num) {
+  let hexadecimal = "";
+  let actualHex = "";
+
+  while (num.toString().length % 4 != 0) {
+    num = "0" + num;
+  }
+
+  for (let i = num.toString().length - 1; i >= 0; i--) {
+    if (actualHex.length == 3) {
+      actualHex = num.toString()[i] + actualHex;
+      hexadecimal = hexTranslator(binToDec(actualHex), "decimal") + hexadecimal;
+      actualHex = "";
+    } else {
+      actualHex = num.toString()[i] + actualHex;
+    }
+  }
+
+  return hexadecimal;
+}
+
 function decToBin(num) {
   let binary = "";
   // while loop to convert the number, it divides by 2 the number and concatenate the mod on the binary var.
@@ -31,9 +52,9 @@ function decToOct(num) {
 
 function hexToBin(num) {
   let binary = "";
-  
-  for (i in num){
-    let actualBin = decToBin(hexTranslator(num[i]));
+
+  for (i in num) {
+    let actualBin = decToBin(hexTranslator(num[i], "hexadecimal"));
 
     for (let j = actualBin.toString().length; j < 4; j++) {
       binary += "0"
@@ -55,8 +76,8 @@ function hexToDec(num) {
    * traducir letras a números correspondientes: A = 10, B = 11, ... F = 15
    */
   // for (let i = 0; i < num.toString().length; i++) {
-    for (i in num) {    
-    decimal += (hexTranslator(num[i]) * Math.pow(16, (num - 1 - i)));
+  for (i in num) {
+    decimal += (hexTranslator(num[i], "hexadecimal") * Math.pow(16, (num - 1 - i)));
   }
 
   return decimal;
@@ -70,21 +91,35 @@ function octToDec(num) {
   return decimal;
 }
 
-function binToHex(num) {
-  let hexadecimal;
-  // js parseint to translate a base 2 number to base 16 and show it on uppercase.
-  hexadecimal = parseInt(num, 2).toString(16).toUpperCase();
-
-  return hexadecimal;
-}
-
 function binToOct(num) {
-  let octal;
+  let octal = "";
+  let actualOct = "";
+
+  while (num.toString().length % 3 != 0) {
+    num = "0" + num;
+  }
+
+  for (let i = num.toString().length - 1; i >= 0; i--) {
+    if (actualOct.length == 2) {
+      actualOct = num.toString()[i] + actualOct;
+      octal = hexTranslator(binToDec(actualOct), "decimal") + octal;
+      actualOct = "";
+    } else {
+      actualOct = num.toString()[i] + actualOct;
+    }
+  }
+
+  console.log("core: " + parseInt(num, 2).toString(8));
+
   // js parseint to translate a base 2 number to base 8.
-  octal = parseInt(num, 2).toString(8);
+  // octal = parseInt(num, 2).toString(8);
 
   return octal;
 }
+
+
+console.log(decToOct(binToDec(11101011101)));
+console.log(binToOct(11101011101));
 
 function octToBin(num) {
   let binary;
@@ -121,7 +156,7 @@ function octToHex(num) {
 // console.log(hexToDec("12A4"));
 // console.log(decToHex(4772));
 
-function hexTranslator(num,srcFormat) {
+function hexTranslator(num, srcFormat) {
   let actualNumber;
 
   if (srcFormat == "hexadecimal") {
@@ -139,5 +174,3 @@ function hexTranslator(num,srcFormat) {
   }
   return actualNumber;
 }
-
-console.log(hexTranslator("F", "hexadecimal"));

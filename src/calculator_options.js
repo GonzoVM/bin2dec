@@ -2,7 +2,8 @@ function binToDec(num) {
   let decimal = 0;
 
   for (let i = num.toString().length - 1; i >= 0; i--) {
-    decimal += parseInt(num.toString()[i]) * Math.pow(2, num.toString().length - 1 - i);
+    decimal +=
+      parseInt(num.toString()[i]) * Math.pow(2, num.toString().length - 1 - i);
   }
 
   return decimal;
@@ -68,7 +69,7 @@ function decToHex(num) {
   let hexadecimal = "";
 
   while (num > 0) {
-    hexadecimal = hexTranslator((num % 16), "decimal") + hexadecimal;
+    hexadecimal = hexTranslator(num % 16, "decimal") + hexadecimal;
     num = Math.floor(num / 16);
   }
 
@@ -95,7 +96,7 @@ function hexToBin(num) {
     let actualBin = decToBin(hexTranslator(num[i], "hexadecimal"));
 
     for (let j = actualBin.toString().length; j < 4; j++) {
-      binary += "0"
+      binary += "0";
     }
 
     binary += actualBin;
@@ -109,13 +110,13 @@ function hexToDec(num) {
   /**
    * teniendo un número hexadecimal         124A
    * coger números 1 a 1                    (1)24A
-   * multiplicar ese num por 16^posición     |_> 1*16^3 
+   * multiplicar ese num por 16^posición     |_> 1*16^3
    * sumar todos los valores                1*16^3 + 2*16^2 + 4*16^1 + A*16^0
    * traducir letras a números correspondientes: A = 10, B = 11, ... F = 15
    */
   // for (let i = 0; i < num.toString().length; i++) {
   for (i in num) {
-    decimal += (hexTranslator(num[i], "hexadecimal") * Math.pow(16, (num - 1 - i)));
+    decimal += hexTranslator(num[i], "hexadecimal") * Math.pow(16, num - 1 - i);
   }
 
   return decimal;
@@ -132,12 +133,12 @@ function hexToOct(num) {
 }
 
 function octToBin(num) {
-  let binary= "";
+  let binary = "";
 
   for (i in num.toString()) {
     let actualBin = decToBin(num.toString()[i]);
     for (let j = actualBin.toString().length; j < 3; j++) {
-      binary += "0"
+      binary += "0";
     }
     binary += actualBin;
   }
@@ -151,7 +152,8 @@ function octToBin(num) {
 function octToDec(num) {
   let decimal = 0;
   for (let i = 0; i < num.toString().length; i++) {
-    decimal += (parseInt(num.toString()[i]) * Math.pow(8, (num.toString().length - 1 - i)))
+    decimal +=
+      parseInt(num.toString()[i]) * Math.pow(8, num.toString().length - 1 - i);
   }
   return decimal;
 }

@@ -29,6 +29,30 @@ function binToHex(num) {
   return hexadecimal;
 }
 
+function binToOct(num) {
+  let octal = "";
+  let actualOct = "";
+
+  while (num.toString().length % 3 != 0) {
+    num = "0" + num;
+  }
+
+  for (let i = num.toString().length - 1; i >= 0; i--) {
+    if (actualOct.length == 2) {
+      actualOct = num.toString()[i] + actualOct;
+      octal = binToDec(actualOct) + octal;
+      actualOct = "";
+    } else {
+      actualOct = num.toString()[i] + actualOct;
+    }
+  }
+
+  // js parseint to translate a base 2 number to base 8.
+  // octal = parseInt(num, 2).toString(8);
+
+  return octal;
+}
+
 function decToBin(num) {
   let binary = "";
   // while loop to convert the number, it divides by 2 the number and concatenate the mod on the binary var.
@@ -91,36 +115,6 @@ function octToDec(num) {
   return decimal;
 }
 
-function binToOct(num) {
-  let octal = "";
-  let actualOct = "";
-
-  while (num.toString().length % 3 != 0) {
-    num = "0" + num;
-  }
-
-  for (let i = num.toString().length - 1; i >= 0; i--) {
-    if (actualOct.length == 2) {
-      actualOct = num.toString()[i] + actualOct;
-      octal = hexTranslator(binToDec(actualOct), "decimal") + octal;
-      actualOct = "";
-    } else {
-      actualOct = num.toString()[i] + actualOct;
-    }
-  }
-
-  console.log("core: " + parseInt(num, 2).toString(8));
-
-  // js parseint to translate a base 2 number to base 8.
-  // octal = parseInt(num, 2).toString(8);
-
-  return octal;
-}
-
-
-console.log(decToOct(binToDec(11101011101)));
-console.log(binToOct(11101011101));
-
 function octToBin(num) {
   let binary;
   // js parseint to convert a base 8 number to base 2.
@@ -130,12 +124,21 @@ function octToBin(num) {
 }
 
 function decToHex(num) {
-  let hexadecimal;
+  let hexadecimal = "";
+  let meme = num;
+  while (num > 0) {
+    hexadecimal = hexTranslator((num % 16), "decimal") + hexadecimal;
+    num = Math.floor(num / 16);
+  }
+
+  console.log(hexadecimal);
   // js parseint to convert a base 10 number to base 16.
-  hexadecimal = parseInt(num, 10).toString(16).toUpperCase();
+  hexadecimal = parseInt(meme, 10).toString(16).toUpperCase();
 
   return hexadecimal;
 }
+
+console.log(decToHex(2111342983));
 
 function hexToOct(num) {
   let octal;

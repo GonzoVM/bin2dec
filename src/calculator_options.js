@@ -116,7 +116,7 @@ function hexToDec(num) {
    */
   // for (let i = 0; i < num.toString().length; i++) {
   for (i in num) {
-    decimal += hexTranslator(num[i], "hexadecimal") * Math.pow(16, num - 1 - i);
+    decimal += hexTranslator(num[i], "hexadecimal") * Math.pow(16, num.length - 1 - i);
   }
 
   return decimal;
